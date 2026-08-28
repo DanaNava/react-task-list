@@ -1,17 +1,13 @@
-
-function TaskList(props) {
-
-  if (props.tasks.length === 0) {
+import TaskCard from "./TaskCard";
+function TaskList({ tasks }) {
+  if (tasks.length === 0) {
     return <h1>No hay tareas aun</h1>;
   }
-  
+
   return (
     <div>
-      {props.tasks.map((task) => (
-        <div key={task.id}>
-          <h1>{task.title}</h1>
-          <p>{task.description}</p>
-        </div>
+      {tasks.map((task) => (
+        <TaskCard task={task} />
       ))}
     </div>
   );

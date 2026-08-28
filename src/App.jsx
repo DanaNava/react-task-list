@@ -12,10 +12,18 @@ function App() {
     setTasks(data);
   }, []);
 
+  function createTask(taskTitle){
+    setTasks([...tasks, {
+      title: taskTitle,
+      id: tasks.length,
+      description: "Nueva tarea"
+    }])
+  }
+
   return (
     <div>
       {/*Renderizamos los componentes que importamos*/}
-      <TaskForm />
+      <TaskForm createTask={createTask} />
       <TaskList tasks={tasks} />
     </div>
   );
